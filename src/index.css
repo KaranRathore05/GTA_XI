@@ -13,8 +13,20 @@ html,body{
     background: #000;
 }
 
+img, h3, h4, p, h2, .text{
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+
+
+
+
 .sky{
-    scale: 1.1;
+    scale: 2;
 }
 .bg{
     scale: 1.1;
