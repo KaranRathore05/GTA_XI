@@ -40,10 +40,10 @@ function App() {
   useGSAP(() => {
     if (!showContent) return;
 
-    gsap.to(".main", { scale: 1, rotate: 0, duration: 2, ease: "Expo.easeInOut", delay: -1 });
-    gsap.to(".sky",  { scale: 1.1, rotate: 0, duration: 2, ease: "Expo.easeInOut", delay: -0.7 });
+    gsap.to(".main", { scale: 1, rotate: 0, duration: 3, ease: "Expo.easeInOut", delay: -1 });
+    gsap.to(".sky",  { scale: 1.2, rotate: 0, duration: 4, ease: "Expo.easeInOut", delay: -0.7 });
     gsap.to(".bg",   { scale: 1.1, rotate: 0, duration: 2, ease: "Expo.easeInOut", delay: -0.7 });
-    gsap.to(".text", { scale: 1,   rotate: 0, duration: 2, ease: "Expo.easeInOut", delay: -0.7 });
+    gsap.to(".text", { scale: 1,   rotate: 0, duration: 4, ease: "Expo.easeInOut", delay: -0.7 });
     gsap.to(".girl", {
       scale: 1,
       rotate: 0,
@@ -56,7 +56,16 @@ function App() {
     gsap.to(".logo18", {
       scale: 0.4,
       rotate: 0,
-      duration: 2,
+      duration: 4,
+      ease: "Expo.easeInOut",
+      delay: -0.7,
+      x: "20%",
+      bottom: "15%",
+    });
+    gsap.to(".star", {
+      scale: 0.4,
+      rotate: 0,
+      duration: 4,
       ease: "Expo.easeInOut",
       delay: -0.7,
       x: "20%",
@@ -83,9 +92,13 @@ function App() {
     const main = document.querySelector(".main");
     main?.addEventListener("mousemove", (e) => {
       const xMove = (e.clientX / innerWidth - 0.5) * 40;
-      gsap.to(".imagesdiv .text", { x: `${xMove * 0.5}%` });
-      gsap.to(".sky", { x: xMove * 4 });
-      gsap.to(".bg",  { x: xMove * 1.2 });
+      const yMove = (e.clientY / innerHeight - 0.5) * 40;
+      gsap.to(".imagesdiv .text", { x: `${xMove * 0.5}%`, y: yMove*0.5 });
+      gsap.to(".sky", { x: xMove * 4 , y: yMove*4});
+      gsap.to(".bg",  { x: xMove * 1.2 , y: yMove*1.2});
+      gsap.to(".star",  { x: xMove * 2 , y: yMove*2});
+      gsap.to(".logo18",  {  y: yMove*2});
+
     });
   }, [showContent]);
 
@@ -147,6 +160,7 @@ function App() {
               </div>
               <img className="logo18 absolute left-1/2 -bottom-[50%] scale-[1]" src="../logo18.png" alt="" />
               <img className="girl absolute left-1/2 -bottom-[150%] -translate-x-1/2 scale-[3] rotate-[-20deg]" src="../girlbg.png" alt="" />
+              <img className="star absolute scale-[0.5] top-[-5%] right-0" src="../star.png" alt="" />
             </div>
 
             <div className="btmbar absolute bottom-0 left-0 w-full px-10 py-11 bg-gradient-to-t from-black to-transparent">
