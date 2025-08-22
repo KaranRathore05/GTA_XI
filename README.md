@@ -43,7 +43,7 @@ Preview: ![Uploading image.png…]()
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<your‑user>/gta6-landing.git
+git clone https://github.com/<your‑user>/gta6-landing.git.
 cd gta6-landing
 
 # 2. Install dependencies
